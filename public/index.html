@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Guessing Game</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1d1d1d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        .game-container {
+            background-color: rgba(75, 0, 130, 0.7);
+);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .game-container img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #f1c40f;
+            margin-bottom: 20px;
+        }
+
+        #question-text {
+            font-size: 1.2em;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        #instruction-text {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #39FF14;
+        }
+
+        #answer-input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 2px solid #f1c40f;
+            border-radius: 5px;
+            font-size: 1.1em;
+            background-colo:
+            rgba(142, 68, 173, 1)
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        #attempts, #score, #message {
+            font-size: 1.1em;
+            margin-top: 15px;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 600px) {
+            .game-container {
+                padding: 15px;
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            #question-text {
+                font-size: 1.1em;
+            }
+
+            #instruction-text {
+                font-size: 0.9em;
+            }
+
+            #answer-input {
+                font-size: 1em;
+            }
+
+            button {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video class="background-video" autoplay loop muted>
+        <source src="video-latar-belakang.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+<audio id="theme-music" src="lagu.mp3" preload="auto" loop autoplay></audio>
+    <div class="game-container">
+        <img src="logo.png" alt="Logo">
+        <h1>UJI MINDA EPL</h1>
+        <div id="question-container">
+            <p id="instruction-text">BOLEH KE TEKA PEMAIN NI?</p>
+            <p id="question-text">Loading question...</p>
+            <input type="text" id="answer-input" placeholder="Masukkan jawapan..." />
+            <button id="submit-answer">Submit Answer</button>
+        </div>
+        <p id="attempts">Percubaan: 0/3</p>
+        <p id="score">Skor: 0</p>
+        <p id="message"></p>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
